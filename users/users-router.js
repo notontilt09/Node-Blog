@@ -4,6 +4,11 @@ const Users = require('./userDb.js');
 
 const router = express.Router();
 
+function upperCaser(req, res, next) {
+    req.body.name = req.body.name.toUpperCase();
+    next();
+}
+
 // GET all users
 router.get('/', (req, res) => {
     Users.get()
@@ -30,7 +35,7 @@ router.get('/:id', (req, res) => {
 })
 
 // POST endpoint to add new user
-router.post('/', (req, res) => {
+router.post('/', upperCaser, (req, res) => {
     const newUser = req.body;
     if (!newUser.name) {
         res.status(400).json({ message: "Please provide a name for the new user" });
@@ -68,7 +73,7 @@ router.delete('/:id', (req, res) => {
 })
 
 // UPDATE a user by id
-router.put('/:id', (req, res) => {
+router.put('/:id', upperCaser, (req, res) => {
     const id = req.params.id;
     const updatedUser = req.body;
 
