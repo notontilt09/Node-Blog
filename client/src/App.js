@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import './App.css';
 
-const url = 'http://localhost:8000/api/users'
+const url = 'https://node-express-blog.herokuapp.com/api/users'
 
 class App extends Component {
   constructor(props) {
