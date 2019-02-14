@@ -42,7 +42,10 @@ class App extends Component {
         axios.get(`${url}/`)
           .then(res => {
             this.setState({
-              users: res.data
+              users: res.data,
+              newUser: {
+                name: ''
+              }
             })
           })
       })
