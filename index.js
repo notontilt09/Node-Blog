@@ -1,6 +1,8 @@
 // code away!
 const server = require('./server.js');
 
-server.listen(6000, () => {
-    console.log(`\n *** server running on http://localhost:4000 *** \n`);
+const port = process.env.PORT || 8000
+
+server.listen(port, () => {
+    console.log(`\n *** server running on http://localhost:${port} *** \n`);
 })
